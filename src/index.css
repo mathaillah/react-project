@@ -24,3 +24,13 @@ body {
   width: 105px;
   height: 105px; 
 }
+
+.status {
+  margin-bottom: 10px;
+  font-weight: bold;
+} 
+
+.game {
+  display: flex;
+  flex-direction: row;
+} 
