@@ -10,7 +10,7 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-export default function Board() {
+function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
 
@@ -25,6 +25,8 @@ export default function Board() {
     setXIsNext(!xIsNext);
   }
 
+
+  
   const winner = calaculateWinner(squares);
   let status = "";
   if (winner) {
@@ -52,6 +54,21 @@ export default function Board() {
   );
 }
 
+export default function Game(){
+  return(
+    <div className="game">
+      <div className="game-board">
+        <Board/>
+      </div>
+      <div className="game-info">
+        <ol>
+          {/*  */}
+        </ol>
+      </div>
+    </div>
+  )
+}
+
 function calaculateWinner (squares) {
   const lines = [
     [0, 1, 2],
@@ -63,7 +80,7 @@ function calaculateWinner (squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-  
+
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
